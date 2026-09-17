@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Hermes Agent — Mac & Windows</title>
+<meta name="description" content="Download Hermes Agent for macOS or Windows — the open-source AI agent from Nous Research.">
+<style>
+  :root { --bg:#0b0e14; --card:#131826; --border:#232b3d; --fg:#e6e9f0; --muted:#8b93a7; --accent:#7c5cff; --accent2:#22d3a7; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+         min-height:100vh; display:flex; justify-content:center; padding:32px 16px 64px; }
+  main { width:100%; max-width:520px; }
+  .hero { text-align:center; margin-bottom:28px; }
+  .logo { font-size:2.8rem; }
+  h1 { font-size:1.6rem; margin:10px 0 6px; }
+  .hero p { color:var(--muted); font-size:.95rem; line-height:1.5; }
+
+  section { background:var(--card); border:1px solid var(--border); border-radius:18px;
+            padding:24px 22px; margin-top:20px; }
+  h2 { font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted);
+       margin-bottom:16px; font-weight:700; }
+
+  .dl-btn { display:flex; align-items:center; gap:14px; width:100%; padding:16px;
+            border-radius:14px; border:1px solid var(--border); background:var(--bg);
+            color:var(--fg); text-decoration:none; margin-bottom:12px; transition:border-color .15s; }
+  .dl-btn:hover { border-color:var(--accent); }
+  .dl-btn .os-icon { font-size:1.7rem; }
+  .dl-btn .label { flex:1; text-align:left; }
+  .dl-btn .label b { display:block; font-size:1.05rem; }
+  .dl-btn .label span { font-size:.8rem; color:var(--muted); }
+  .dl-btn .arrow { color:var(--muted); font-size:1.2rem; }
+  .dl-btn.recommended { border-color:var(--accent); background:linear-gradient(135deg, rgba(124,92,255,.14), rgba(124,92,255,.03)); }
+  .dl-btn.recommended .arrow { color:var(--accent); }
+  .rec-tag { font-size:.65rem; font-weight:800; color:var(--accent); text-transform:uppercase;
+             letter-spacing:.06em; }
+  .cli { font-size:.78rem; color:var(--muted); text-align:center; margin-top:4px; }
+  .cli a { color:var(--muted); }
+
+  .email-box p { font-size:.9rem; color:var(--muted); line-height:1.5; margin-bottom:14px; }
+  form { display:flex; flex-direction:column; gap:10px; }
+  input { padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:var(--bg);
+          color:var(--fg); font-size:1rem; outline:none; }
+  input:focus { border-color:var(--accent); }
+  button { padding:14px; border-radius:12px; border:none; background:var(--accent); color:#fff;
+           font-size:1rem; font-weight:700; cursor:pointer; }
+  button:active { transform:scale(.98); }
+  #email-done { display:none; padding:12px; border-radius:12px; background:rgba(34,211,167,.1);
+                border:1px solid var(--accent2); color:var(--accent2); font-size:.9rem;
+                font-weight:600; text-align:center; }
+
+  .step { display:flex; gap:12px; padding:8px 0; font-size:.88rem; color:var(--muted); align-items:baseline; }
+  .step b { color:var(--fg); }
+  .step .n { min-width:22px; height:22px; border-radius:50%; background:var(--accent); color:#fff;
+             font-size:.72rem; font-weight:700; display:inline-flex; align-items:center; justify-content:center; }
+  .fine { margin-top:14px; font-size:.72rem; color:var(--muted); text-align:center; line-height:1.5; }
+</style>
+</head>
+<body>
+<main>
+  <div class="hero">
+    <div class="logo">⚡</div>
+    <h1>Get Hermes Agent</h1>
+    <p>The open-source AI agent from Nous Research that learns as you use it. Free for Mac and Windows.</p>
+  </div>
+
+  <section>
+    <h2>Download</h2>
+    <a class="dl-btn" id="dl-mac" href="https://hermes-assets.nousresearch.com/Hermes-Setup.dmg" onclick="trackDownload('mac')">
+      <span class="os-icon">🍎</span>
+      <span class="label"><b>Download for Mac</b><span>macOS 12+ · Apple Silicon</span></span>
+      <span class="rec-tag" hidden>Recommended</span>
+      <span class="arrow">⬇</span>
+    </a>
+    <a class="dl-btn" id="dl-win" href="https://hermes-assets.nousresearch.com/Hermes-Setup.exe" onclick="trackDownload('windows')">
+      <span class="os-icon">🪟</span>
+      <span class="label"><b>Download for Windows</b><span>Windows 10 / 11</span></span>
+      <span class="rec-tag" hidden>Recommended</span>
+      <span class="arrow">⬇</span>
+    </a>
+    <p class="cli">Linux or terminal install? <a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation">One-line install →</a></p>
+  </section>
+
+  <section class="email-box" id="email-section">
+    <h2>Get setup tips + free-credit updates</h2>
+    <p>Drop your email (optional) — we'll send a quickstart guide and ping you when free credit promos go live. No spam.</p>
+
+    <!-- TO COLLECT EMAILS FOR REAL:
+         1. Create a free form at https://formspree.io (2 min, free up to 50 submissions/mo)
+         2. Replace YOUR_FORM_ID below with your form ID (e.g. https://formspree.io/f/xqkrgvyz)
+         Until then, emails are stored locally in the visitor's browser (demo mode). -->
+    <form id="email-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+      <input type="hidden" name="downloaded" id="downloaded-os" value="">
+      <button type="submit">Send me the guide →</button>
+    </form>
+    <div id="email-done">✓ You're on the list — check your inbox soon.</div>
+  </section>
+
+  <section>
+    <h2>After you download</h2>
+    <div class="step"><span class="n">1</span><span><b>Run the installer</b> — it sets up the desktop app and CLI together.</span></div>
+    <div class="step"><span class="n">2</span><span><b>Connect a model</b> — sign in with Nous Portal when prompted, or bring your own API key.</span></div>
+    <div class="step"><span class="n">3</span><span><b>Start chatting</b> — it remembers you across sessions and gets better the more you use it.</span></div>
+    <p class="fine">Hermes Agent is free &amp; open source (MIT). Model usage via your provider of choice.</p>
+  </section>
+</main>
+
+<script>
+// Auto-detect OS and highlight the matching download.
+(function () {
+  const ua = navigator.userAgent || '';
+  const isMac = /Macintosh|Mac OS X/.test(ua);
+  const isWin = /Windows/.test(ua);
+  const el = isMac ? document.getElementById('dl-mac')
+           : isWin ? document.getElementById('dl-win') : null;
+  if (el) {
+    el.classList.add('recommended');
+    el.querySelector('.rec-tag').hidden = false;
+    el.parentNode.insertBefore(el, el.parentNode.firstChild.nextSibling);
+  }
+})();
+
+// Remember which OS they downloaded so the email signup can carry it along.
+function trackDownload(os) {
+  document.getElementById('downloaded-os').value = os;
+}
+
+// Email capture: Formspree when configured, local demo mode until then.
+const form = document.getElementById('email-form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const demo = form.action.includes('YOUR_FORM_ID');
+  if (!demo) {
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+    } catch (_) { /* still show success */ }
+  } else {
+    const list = JSON.parse(localStorage.getItem('demo-signups') || '[]');
+    list.push({ email: form.email.value.trim(), os: document.getElementById('downloaded-os').value,
+                at: new Date().toISOString() });
+    localStorage.setItem('demo-signups', JSON.stringify(list));
+  }
+  form.style.display = 'none';
+  document.getElementById('email-done').style.display = 'block';
+});
+</script>
+</body>
+</html>
